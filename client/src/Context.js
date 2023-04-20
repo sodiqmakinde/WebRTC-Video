@@ -4,8 +4,8 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 
-const socket = io('http://localhost:3005');
-// const socket = io('https://web-rtc-video-seven.vercel.app');
+// const socket = io('http://localhost:3005');
+const socket = io('https://web-rtc-video-blond.vercel.app');
 // const socket = io('https://warm-wildwood-81069.herokuapp.com');
 
 const ContextProvider = ({ children }) => {
