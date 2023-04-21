@@ -1,51 +1,37 @@
-import React from 'react';
-import { Typography, AppBar } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import styled from "styled-components";
 
-import VideoPlayer from './components/VideoPlayer';
-import Sidebar from './components/Sidebar';
-import Notifications from './components/Notifications';
+import Player from "./components/Player";
+import Sidebar from "./components/Sidebar";
+import Notifications from "./components/Notifications";
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    borderRadius: 15,
-    margin: '30px 100px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '600px',
-    border: '2px solid black',
+const App = () => (
+  <div className="">
+    <Wrapper>
+      <div className="bill_board">
+        <div className="bills">
+          <h2>TalentPlus WebRTC</h2>
+        </div>
+      </div>
+      <Player />
+      {/* <Sidebar /> */}
 
-    [theme.breakpoints.down('xs')]: {
-      width: '90%',
-    },
-  },
-  image: {
-    marginLeft: '15px',
-  },
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
-  },
-}));
-
-const App = () => {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.wrapper}>
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant="h2" align="center">Video Chat</Typography>
-      </AppBar>
-      <VideoPlayer />
-      <Sidebar>
-        <Notifications />
-      </Sidebar>
-    </div>
-  );
-};
+      <Notifications />
+    </Wrapper>
+  </div>
+);
 
 export default App;
+
+const Wrapper = styled.div`
+  width: 100%;
+  .bill_board {
+    border-bottom: 1px solid #ccc;
+    .bills{
+      max-width: 1300px;
+      padding: 20px 0;
+      margin: 0 auto;
+    } h2 {
+    }
+  }
+`;

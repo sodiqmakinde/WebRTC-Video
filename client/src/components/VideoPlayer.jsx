@@ -1,51 +1,57 @@
-import React, { useContext } from 'react';
-import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import React, { useContext } from "react";
+import styled from "styled-components";
 
-import { SocketContext } from '../Context';
+import { SocketContext } from "../Context";
 
-const useStyles = makeStyles((theme) => ({
-  video: {
-    width: '550px',
-    [theme.breakpoints.down('xs')]: {
-      width: '300px',
-    },
-  },
-  gridContainer: {
-    justifyContent: 'center',
-    [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column',
-    },
-  },
-  paper: {
-    padding: '10px',
-    border: '2px solid black',
-    margin: '10px',
-  },
-}));
+const VideoWrapper = styled.div`
+  .i_called {
+    max-width: 700px;
+    display: flex;
+    .drone_cam {
+    }
+  }
+  h5 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+  }
+`;
+
+const Video = styled.video`
+  width: 100%;
+`;
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
-  const classes = useStyles();
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
+    useContext(SocketContext);
 
   return (
-    <Grid container className={classes.gridContainer}>
+    <VideoWrapper>
       {stream && (
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
-            <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
-          </Grid>
-        </Paper>
+        <section>
+          <div className="i_called">
+            <h5>{name || "Name"}</h5>
+            <Video playsInline muted ref={myVideo} autoPlay />
+          </div>
+          <div className="drone_cam">
+            <h3>DroneCam</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
+              deserunt odit! Mollitia harum eaque numquam ex quibusdam, saepe
+              laborum voluptate id inventore sint consequatur? Dicta error sit
+              voluptatem magni culpa!
+            </p>
+          </div>
+        </section>
       )}
       {callAccepted && !callEnded && (
-        <Paper className={classes.paper}>
-          <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
-            <video playsInline ref={userVideo} autoPlay className={classes.video} />
-          </Grid>
-        </Paper>
+        <section className="u_called">
+          <h5>{call.name || "Name"}</h5>
+          <Video playsInline ref={userVideo} autoPlay />
+        </section>
       )}
-    </Grid>
+    </VideoWrapper>
   );
 };
 
