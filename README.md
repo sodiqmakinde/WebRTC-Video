@@ -7,20 +7,19 @@ Decacam is a WebRTC-based video chat application that allows users to have video
 
 ![Decacam Preview](https://github.com/sodiqmakinde/WebRTC-Video/blob/main/client/public/Screenshot%202023-04-22%20at%2007.10.57.png?raw=true)
 
-
 ## Installation
 
 To use Decacam, you will need to clone this repository to your local machine. You can do this using the following command in your terminal:
 
 bashCopy code
 
-`git clone https://github.com/sodiqmakinde/WebRTC-Video.git` 
+`git clone https://github.com/sodiqmakinde/WebRTC-Video.git`
 
 Once you have cloned the repository, you will need to install the dependencies. You can do this by navigating to the root directory of the project in your terminal and running the following command:
 
 Copy code
 
-`npm install` 
+`npm install`
 
 This will install all the necessary dependencies needed to run the application.
 
@@ -28,6 +27,7 @@ This will install all the necessary dependencies needed to run the application.
 
 To start the development server, navigate to the root directory of the project in your terminal and run the following command:
 
+sqlCopy code
 
 `npm start` 
 
@@ -45,6 +45,8 @@ This will start the client-side of the application on `localhost:3000`.
 
 You can now access the application in your web browser by visiting `localhost:3000`.
 
+Alternatively, you can also access the deployed versions of the application. The server is deployed on [https://talentserver.vercel.app](https://talentserver.vercel.app/) and the frontend is deployed on [https://decacam.netlify.app/](https://decacam.netlify.app/). However, there may be an issue with CORS that is currently preventing requests from working properly. This issue can be fixed later.
+
 ## Usage
 
 To use Decacam, make sure you have the server running at `localhost:3005`.
@@ -57,4 +59,3 @@ To use Decacam, make sure you have the server running at `localhost:3005`.
 ## Contributing
 
 If you would like to contribute to Decacam, please open a pull request or submit an issue on the GitHub repository.
-
